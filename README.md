@@ -1,24 +1,10 @@
 # README
+This is a Real-time updates with Turbo Streams and Action Cable example. to test how to use the mentioned Turbo Streams ans Action Cable on Rails 7.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Some other implemented features to make pretier this exercise are:
+    
+    *slim
+    *simple form
+    *bootstrap
 
-Things you may want to cover:
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
