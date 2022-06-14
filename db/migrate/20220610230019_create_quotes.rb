@@ -1,6 +1,6 @@
-class CreateQoutes < ActiveRecord::Migration[7.0]
+class CreateQuotes < ActiveRecord::Migration[7.0]
   def change
-    create_table :qoutes do |t|
+    create_table :quotes do |t|
       t.string :name, null: false
 
       t.timestamps

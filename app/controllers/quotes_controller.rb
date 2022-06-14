@@ -1,21 +1,21 @@
-class QoutesController < ApplicationController
-    before_action :set_qoute, only: [:show, :edit, :update, :destroy]
+class QuotesController < ApplicationController
+    before_action :set_quote, only: [:show, :edit, :update, :destroy]
 
     def index
-        @qoutes = Qoutes.all
+        @quotes = Quote.all
     end
 
     def show
     end
 
     def new
-        @qoute = Qoute.new
+        @quote = Quote.new
     end
 
     def create
-        @qoute = Qoute.new(qoute_params)
-        if @qoute.save
-            redirect_to qoutes_path, notice: "Qoute was successfully created"
+        @quote = Quote.new(quote_params)
+        if @quote.save
+            redirect_to quotes_path, notice: "Quote was successfully created"
         else
             rednder :new
         end
@@ -25,8 +25,8 @@ class QoutesController < ApplicationController
     end
 
     def update
-        if @qoute.update(qoute_params)
-            redirect_to qoutes_path, notice: "The qoute was successfully updated"
+        if @quote.update(quote_params)
+            redirect_to quotes_path, notice: "The quote was successfully updated"
         else
             render :edit
         end
@@ -38,7 +38,6 @@ class QoutesController < ApplicationController
     end
 
     private
-
         def set_quote
             @quote = Quote.find(params[:id])
         end
@@ -46,4 +45,5 @@ class QoutesController < ApplicationController
         def quote_params
             params.require(:quote).permit(:name)
         end
+        
 end

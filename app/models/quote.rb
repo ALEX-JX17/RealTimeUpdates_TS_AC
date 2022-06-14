@@ -1,3 +1,3 @@
-class Qoute < ApplicationRecord
+class Quote < ApplicationRecord
     validates :name, presence: true
 end
