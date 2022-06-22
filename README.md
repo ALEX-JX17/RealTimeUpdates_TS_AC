@@ -6,9 +6,8 @@ With this I want to test the client side real time updates without use any javas
 
 
 
-Some other implemented features to make pretier this exercise are:
+Some other implemented features to become a better coder are:
     
-    *tests
+    *System tests
     *slim
     *simple form
-    *bootstrap
