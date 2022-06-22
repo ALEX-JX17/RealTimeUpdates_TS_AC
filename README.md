@@ -11,3 +11,6 @@ Some other implemented features to become a better coder are:
     *System tests
     *slim
     *simple form
+
+
+Reference: https://www.hotrails.dev/turbo-rails
