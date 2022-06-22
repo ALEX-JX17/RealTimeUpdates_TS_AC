@@ -4,3 +4,27 @@
             = quote.errors.full_messages.to_sentence.capitalize
     = f.input :name, input_html: { autofocus: true }
     = f.submit class: "btn btn--secondary"
+    = link_to "Cancel", quotes_path, class: "btn btn--light"
+
+/   When our user clicks on the "Cancel" link for the new quote form:
+
+/     The link is within a Turbo Frame of id new_quote, so Turbo will only replace the content of this frame
+/     The link navigates to the Quotes#index page that contains an empty Turbo Frame with id new_quote
+/     Turbo replaces the content of the new_quote frame with the empty content, so the form disappears
+
+/   When our user clicks on the "Cancel" link for the edit quote form:
+
+/     The link is within a Turbo Frame of id dom_id(quote), so Turbo will only replace the content of this frame
+/     The link navigates to the Quotes#index page that contains a Turbo Frame with id dom_id(quote) that contains the HTML for this quote
+/     Turbo replaces the content of the dom_id(quote) Frame containing the form with the HTML for this quote
+
+
+    / Another NO god way to erase our Turbo Frame is by a method in the controller and a path
+    / - unless @quote.id
+    /     = link_to "cancel", \
+    /         close_turbo_frame_path( frame_id: dom_id(Quote.new) ), \
+    /         class: "btn btn--light"
+    / - else
+    /     = link_to "cancel", \
+    /         close_quote_edit_form_path( id: @quote ), \
+    /         class: "btn btn--light"

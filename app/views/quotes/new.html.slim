@@ -3,4 +3,5 @@
     .header
         h1
             = "New Quote"
-    = render "form", quote: @quote
+    = turbo_frame_tag Quote.new do
+        = render "form", quote: @quote

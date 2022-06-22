@@ -4,6 +4,13 @@ main.container
             | Quotes
         = link_to "New Quote",\
             new_quote_path,\
+            data: { turbo_frame: dom_id(Quote.new)}, \
             class: "btn btn--primary"
-    
-    = render @quotes
+
+    = turbo_frame_tag Quote.new
+    = turbo_frame_tag 'quotes'
+        = render @quotes
+
+    / # Compared to using a frontend library like React, 
+    / # there is no state to manage, no complex actions to dispatch, 
+    / # no reducers... Turbo is a joy to work with!

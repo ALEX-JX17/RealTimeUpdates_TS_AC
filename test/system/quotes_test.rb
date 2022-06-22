@@ -2,7 +2,9 @@ require "application_system_test_case"
 
 class QuotesTest < ApplicationSystemTestCase
   setup do
-    @quote = quotes(:first) #This is a reference to the firts fixture quote 
+    #@quote = quotes(:first) #This is a reference to the firts fixture quote 
+    # We need to order quote as well in the system tests
+    @quote = Quote.ordered.first
   end
 
   test "Showing a quote" do
@@ -26,12 +28,12 @@ class QuotesTest < ApplicationSystemTestCase
     # After that we expect to be in the same page
     # When we click in the button with the text "Create quote"
     assert_selector "h1", text: "Quotes"
-    click_on "Create quote"
+    click_on "Create Quote"
 
     # We expect to be in the page with title "Quotes"
     # and to see our "New quote " added to the list
     assert_selector "h1", text: "Quotes"
-    assert_text "New quote"
+    assert_text "New Quote"
   end
  
   test "Updating a quote" do
@@ -39,13 +41,13 @@ class QuotesTest < ApplicationSystemTestCase
     assert_selector "h1", text: "Quotes"
 
     click_on "Edit", match: :first
-    fill_in "Name", with: "Updated quote"
+    fill_in "Name", with: "Updated Quote"
 
     assert_selector "h1", text: "Quotes"
-    click_on "Update quote"
+    click_on "Update Quote"
 
     assert_selector "h1", text: "Quotes"
-    assert_text "Updated quote"
+    assert_text "Updated Quote"
   end
 
   test "Destroying a quote" do

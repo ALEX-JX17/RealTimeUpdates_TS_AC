@@ -1,0 +1,21 @@
+= turbo_stream.prepend "quotes", @quote
+= turbo_stream.update Quote.new, ""
+
+/ If we feel the first line is too long
+/ = turbo_stream.append "quotes", partial: "quotes/quote", locals: { quote: @quote }
+/
+/ we can use a block like:
+/= turbo_stream.prepend "quotes" do
+/     = render partial: "quotes/quote", locals: { quote: @quote }
+/
+/ And considerating that the following two expressions are equivalent:
+/
+/ render partial: "quotes/quote", locals: { quote: @quote }
+/ render @quote
+/ 
+/ We could write something like
+/ = turbo_stream.prepend "quotes" do
+/     = render @quote
+/ Or even better: 
+/ = turbo_stream.append "quotes", @quote
+
