@@ -1,5 +1,6 @@
 = turbo_stream.prepend "quotes", @quote
 = turbo_stream.update Quote.new, ""
+= turbo_stream.update "quotes_count", partial: "quotes/quotes_counter"
 
 / If we feel the first line is too long
 / = turbo_stream.append "quotes", partial: "quotes/quote", locals: { quote: @quote }
