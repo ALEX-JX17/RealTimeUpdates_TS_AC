@@ -3,8 +3,8 @@ class Quote < ApplicationRecord
 
     scope :ordered, -> { order(id: :desc) }
 
-    #REDIS SHOULD BE INSTALLED AND RUNNING
-    #redis-server
+    # REDIS SHOULD BE INSTALLED AND RUNNING
+    # redis-server
 
     # This should be executed every time a new quote is inserted into the database.
 
@@ -30,7 +30,11 @@ class Quote < ApplicationRecord
         
     #     These are precisely the values that we passed as options. Thus, the following 
     #     code is equivalent to what we had before:
-    after_create_commit -> { broadcast_prepend_to "quotes" }
+    after_create_commit -> { 
+        broadcast_prepend_to "quotes"
+        broadcast_update_to "quotes", partial: "quotes/quotes_count", target: "quotes_count"
+    }
     after_update_commit -> { broadcast_replace_to "quotes" }
     after_destroy_commit -> { broadcast_remove_to "quotes" }
+
 end

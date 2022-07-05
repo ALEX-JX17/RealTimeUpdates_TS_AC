@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root "quotes#index"
   # add the seven routes of the CRUD for our Quote resource
   resources :quotes
 

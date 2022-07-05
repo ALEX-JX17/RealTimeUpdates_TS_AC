@@ -1,10 +1,17 @@
 # touch test/fixtures/quotes.yml
 
 first:
+  id: 1
   name: First quote
 
 second:
+  id: 2
   name: Second quote
 
 third:
+  id: 3
   name: Third quote
+
+fourth:
+  id: 4
+  name: Fourth quote

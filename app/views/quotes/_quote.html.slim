@@ -1,7 +1,6 @@
 = turbo_frame_tag quote do
     .quote
         = link_to quote.name, quote_path(quote), data: { turbo_frame: "_top" }
-        = Quote.count
         .quote__actions
             = link_to "Edit",\
                 edit_quote_path(quote),\

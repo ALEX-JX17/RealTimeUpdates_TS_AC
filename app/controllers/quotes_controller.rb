@@ -52,7 +52,13 @@ class QuotesController < ApplicationController
         @quote.destroy
         # redirect_to quotes_path, notice: "Quote was successfully destroyed."
         respond_to do |format|
-            format.turbo_stream { render turbo_stream: turbo_stream.remove( @quote ) }
+            # format.turbo_stream { render turbo_stream: turbo_stream.remove( @quote ) }
+            format.turbo_stream do
+                render turbo_stream: [
+                    turbo_stream.remove( @quote ),
+                    turbo_stream.update( "quotes_count", partial: "quotes/quotes_count" )           
+                ]
+            end
             format.html { redirect_to quotes_path, notice: "Quote was successfully destroyed." }
         end
     end
